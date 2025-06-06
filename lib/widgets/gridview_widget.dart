@@ -11,31 +11,47 @@ class GridviewWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // height: 0.01 * getHeight(context),
-     width: 0.02 * getWidth(context),
+      // width: 0.02 * getWidth(context),
       decoration: BoxDecoration(
         color: AppColors().containercolor,
         border: Border.all(color: Colors.white),
-        borderRadius: BorderRadius.all(Radius.circular(22)),
+        borderRadius: BorderRadius.all(
+          Radius.circular(22 * getResponsive(context)),
+        ),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Padding(
-            padding:  EdgeInsets.only(left: 8 * getResponsive(context)),
-            child: Icon(icon, color: Colors.white,size: 30 * getResponsive(context),),
+            padding: EdgeInsets.only(
+              left: 8 * getResponsive(context),
+              right: 9 * getResponsive(context),
+            ),
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: isPortrait(context)
+                  ? 30 * getResponsive(context)
+                  : 100 * getResponsive(context),
+            ),
           ),
-          SizedBox(width: 0.05 * getWidth(context)),
+          // SizedBox(width: 0.05 * getWidth(context)),
           Flexible(
             child: Text(
-              maxLines: 3,
+              // maxLines: 3,
               overflow: TextOverflow.visible,
               name,
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
-                fontSize: 20 * getResponsive(context),
+                fontSize: isTablet(context)
+                    ? 30 * getResponsiveText(context)
+                    : isPortrait(context)
+                    ? 20 * getResponsive(context)
+                    : 30 * getResponsiveText(context),
               ),
+              // textAlign: TextAlign.center,
             ),
           ),
         ],

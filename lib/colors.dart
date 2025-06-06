@@ -6,4 +6,6 @@ class AppColors {
    Color primarycolor = Color(0xff121A21);
    Color textcolor = Color(0xff94ABC7);
    Color containercolor = Color(0xff1A2633);
+   Color starcolor = Color(0xff1A78E5);
+   Color iconcolor = Color(0xff243347);
 }
